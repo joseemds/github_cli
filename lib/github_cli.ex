@@ -2,7 +2,7 @@ defmodule GithubCli do
   @moduledoc """
   Documentation for GithubCli.
   """
-  @options [switches: [user: :string, repo: :string], aliases: [n: :name, u: :user]]
+  @options [switches: [username: :string, repo: :string], aliases: [r: :repo, u: :username]]
 
   def main(args) do
     args
