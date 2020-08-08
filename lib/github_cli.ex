@@ -7,6 +7,6 @@ defmodule GithubCli do
   def main(args) do
     args
     |> OptionParser.parse(@options)
-    |> GithubCli.Handler.parse()
+    |> GithubCli.Commands.parse()
   end
 end

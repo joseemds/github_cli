@@ -9,7 +9,11 @@ defmodule GithubCli.Commands do
     IO.puts(@help)
   end
 
-  def get_user(username) do
-    GithubCli.Requests.Users.get_user(username)
+  def parse(argv) do
+    case argv do
+      {[username: username], _, _} -> GithubCli.Commands.UserCommands.get_user(username)
+      {[help: true], _, _} -> GithubCli.Commands.help()
+      {_, _, _} -> GithubCli.Commands.help()
+    end
   end
 end

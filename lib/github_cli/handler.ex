@@ -1,9 +1,5 @@
 defmodule GithubCli.Handler do
-  def parse(argv) do
-    case argv do
-      {[username: username], _, _} -> GithubCli.Commands.get_user(username)
-      {[help: true], _, _} -> GithubCli.Commands.help()
-      {_, _, _} -> GithubCli.Commands.help()
-    end
+  def get_user(username) do
+    GithubCli.Requests.Users.get_user(username)
   end
 end
