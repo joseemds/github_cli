@@ -1,11 +1,12 @@
 defmodule GithubCli.Commands.UserCommands do
+  use Tesla
+
   alias GithubCli.Handler.UserHandler
 
-  @url "https://api.github.com/users/"
+  plug(Tesla.Middleware.BaseUrl, "https://api.github.com/users/")
+  plug(Tesla.Middleware.JSON)
 
   def get_user(username) do
-    {:ok, response} = HTTPoison.get(@url <> username)
-
-    response |> UserHandler.show_user()
+    get(username)
   end
 end
