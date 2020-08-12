@@ -1,9 +1,7 @@
 defmodule GithubCli.Handler.UserHandler do
   alias GithubCli.Helpers.DisplayHelper
 
-  def show_user(%{body: body}) do
-    {:ok, json} = Jason.decode(body)
-
-    DisplayHelper.to_table(json)
+  def show_user({:ok, %{body: body}}) do
+    DisplayHelper.to_table(body)
   end
 end

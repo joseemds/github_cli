@@ -1,4 +1,7 @@
 defmodule GithubCli.Commands do
+  alias GithubCli.Commands.UserCommands
+  alias GithubCli.Handler.UserHandler
+
   @help """
    Usage:
 
@@ -11,7 +14,7 @@ defmodule GithubCli.Commands do
 
   def parse(argv) do
     case argv do
-      {[username: username], _, _} -> GithubCli.Commands.UserCommands.get_user(username)
+      {[username: username], _, _} -> UserCommands.get_user(username) |> UserHandler.show_user()
       {[help: true], _, _} -> GithubCli.Commands.help()
       {_, _, _} -> GithubCli.Commands.help()
     end
