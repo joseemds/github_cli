@@ -24,7 +24,8 @@ defmodule GithubCli.MixProject do
     [
       {:tesla, "~> 1.3"},
       {:jason, "~> 1.2"},
-      {:hackney, "~> 1.16"}
+      {:hackney, "~> 1.16"},
+      {:table_rex, "~> 3.0"}
     ]
   end
 

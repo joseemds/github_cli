@@ -1,12 +1,8 @@
 defmodule GithubCli.Helpers.DisplayHelper do
   def to_table(m) do
-    keys = Map.keys(m)
-
-    for key <- keys do
-      IO.puts("""
-      Key | Value
-      #{key} | #{Map.get(m, key)}
-      """)
-    end
+    rex_table = TableRex.Table.new([Map.values(m)], [Map.keys(m)])
+    {:ok, table} = TableRex.Table.render(rex_table)
+    IO.inspect(rex_table)
+    IO.puts(table)
   end
 end
