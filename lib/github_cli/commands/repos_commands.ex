@@ -3,4 +3,8 @@ defmodule GithubCli.Commands.ReposCommands do
 
   plug(Tesla.Middleware.BaseUrl, "https://api.github.com/repos/")
   plug(Tesla.Middleware.JSON)
+
+  def get_repo(username, repo_name) do
+    get("#{username}/#{repo_name}")
+  end
 end
