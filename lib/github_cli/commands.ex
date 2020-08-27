@@ -17,6 +17,9 @@ defmodule GithubCli.Commands do
 
   def parse(argv) do
     case argv do
+      {[username: username, repo: repo_name, issues: true], _, _} ->
+        ReposCommands.get_repo_issues(username, repo_name) |> RepoHandler.show_repo_issues()
+
       {[username: username, repo: repo_name], _, _} ->
         ReposCommands.get_repo(username, repo_name) |> RepoHandler.show_repo()
 
