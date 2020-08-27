@@ -8,7 +8,7 @@ defmodule GithubCli.Commands.ReposCommands do
     get("#{username}/#{repo_name}")
   end
 
-  def get_repo_issues(username, repo_name) do
+  def get_issues_from_repo(username, repo_name) do
     get("#{username}/#{repo_name}/issues")
   end
 end
